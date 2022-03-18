@@ -29,4 +29,10 @@ public class RegisterServlet extends HttpServlet {
         writer.println("<br> Date: "+Date);
         writer.close();
     }
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        System.out.println("register:init()");
+    }
 }

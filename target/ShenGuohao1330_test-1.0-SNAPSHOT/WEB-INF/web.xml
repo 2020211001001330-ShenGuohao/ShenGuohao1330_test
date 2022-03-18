@@ -16,11 +16,23 @@
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.ShenGuohao.week3.RegisterServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/hhhhh</url-pattern>
     </servlet-mapping> 
     
+     
+    <servlet>
+        <servlet-name>JdbcServlet</servlet-name>
+        <servlet-class>com.ShenGuohao.week4.JdbcServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JdbcServlet</servlet-name>
+        <url-pattern>/jdbc</url-pattern>
+    </servlet-mapping>
     
 </web-app>
