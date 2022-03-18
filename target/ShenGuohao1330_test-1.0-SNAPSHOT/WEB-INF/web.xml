@@ -8,21 +8,24 @@
            <servlet-name>helloServlet</servlet-name>
            <servlet-class>com.ShenGuohao.week2.HelloServlet</servlet-class>
        </servlet>
-     <servlet-mapping>
+   
+    <servlet-mapping>
          <servlet-name>helloServlet</servlet-name>
          <url-pattern>/hello</url-pattern>
      </servlet-mapping>
-      
-    <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.ShenGuohao.week3.RegisterServlet</servlet-class>
 
 
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/hhhhh</url-pattern>
-    </servlet-mapping> 
+    
+<!--    <servlet>-->
+<!--        <servlet-name>RegisterServlet</servlet-name>-->
+<!--        <servlet-class>com.ShenGuohao.week3.RegisterServlet</servlet-class>-->
+
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>RegisterServlet</servlet-name>-->
+<!--        <url-pattern>/hhhhh</url-pattern>-->
+<!--    </servlet-mapping> -->
     
   <!--
     <servlet>
@@ -48,9 +51,26 @@
     </servlet>
   -->
 
-    <servlet-mapping>
-        <servlet-name>JdbcServlet</servlet-name>
-        <url-pattern>/jdbc</url-pattern>
-    </servlet-mapping>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>sghSGH123</param-value>
+    </context-param>
+    <context-param>
+        <param-name>driver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:sqlserver://localhost:1433;DatabaseName=userdb;encrypt=false</param-value>
+    </context-param>
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>JdbcServlet</servlet-name>-->
+<!--        <url-pattern>/jdbc</url-pattern>-->
+<!--    </servlet-mapping>-->
     
 </web-app>

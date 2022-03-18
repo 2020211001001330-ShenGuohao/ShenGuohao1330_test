@@ -8,16 +8,18 @@ import java.io.PrintWriter;
 
 import java.sql.*;
 
-@WebServlet(name = "JdbcServlet",
-            urlPatterns = {"/jdbc"},
-            initParams = {
-             @WebInitParam(name = "username",value = "sa"),
-             @WebInitParam(name = "password",value = "sghSGH123"),
-             @WebInitParam(name = "driver",value = "com.microsoft.sqlserver.jdbc.SQLServerDriver"),
-             @WebInitParam(name = "url",value = "jdbc:sqlserver://localhost:1433;DatabaseName=Stu;encrypt=false"),
-            },
-          loadOnStartup = 1
-)
+//@WebServlet(name = "JdbcServlet",
+//            urlPatterns = {"/jdbc"},
+//            initParams = {
+//             @WebInitParam(name = "username",value = "sa"),
+//             @WebInitParam(name = "password",value = "sghSGH123"),
+//             @WebInitParam(name = "driver",value = "com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+//             @WebInitParam(name = "url",value = "jdbc:sqlserver://localhost:1433;DatabaseName=Stu;encrypt=false"),
+//            },
+//          loadOnStartup = 1
+//)
+
+@WebServlet(urlPatterns = {"/jdbc"})
 public class JdbcServlet extends HttpServlet {
 
     Connection con;
@@ -31,7 +33,7 @@ public class JdbcServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+           System.out.println("JDBCServlet-->Post()");
     }
 
     @Override
@@ -42,11 +44,17 @@ public class JdbcServlet extends HttpServlet {
 //        String password="sghSGH123";
 //        String url="jdbc:sqlserver://localhost:1433;DatabaseName=Stu;encrypt=false";;
 
-          ServletConfig config=getServletConfig();
-          String username=config.getInitParameter("username");
-          String password=config.getInitParameter("password");
-          String driver=config.getInitParameter("driver");
-          String url=config.getInitParameter("url");
+//          ServletConfig config=getServletConfig();
+//          String username=config.getInitParameter("username");
+//          String password=config.getInitParameter("password");
+//          String driver=config.getInitParameter("driver");
+//          String url=config.getInitParameter("url");
+
+            ServletContext context=getServletContext();
+            String username=context.getInitParameter("username");
+        String password=context.getInitParameter("password");
+        String url=context.getInitParameter("url");
+        String driver=context.getInitParameter("driver");
 
 
 
