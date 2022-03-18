@@ -12,14 +12,15 @@
 </head>
 <body>
 
-<form method="post" action="hhhhh">
+<form method="post" action="register">
+    <input name="ID" type="text" value="ID"/><br/>
     <input name="username" type="text" value="username"/> <br/>
     <input name="password" type="password"minlength="8" value="password"> <br/>
     <input name="Email" type="email" value="Email"/> <br/>
 
     <label>Gender</label><input name="Gender" type="radio" value="Man"/>Man
     <input name="Gender" type="radio" value="Femail"/>Female <br/>
-    <input name="Date" type="date" value="Date of Birth(yyyy-mm-dd)"/> <br/>
+    <input name="birthday" type="date" value="Date of Birth(yyyy-mm-dd)"/> <br/>
 
     <input name="register" type="submit" value="register" />
 </form>
