@@ -8,7 +8,16 @@ import java.io.PrintWriter;
 
 import java.sql.*;
 
-@WebServlet(name = "JdbcServlet", value = "/JdbcServlet")
+@WebServlet(name = "JdbcServlet",
+            urlPatterns = {"/jdbc"},
+            initParams = {
+             @WebInitParam(name = "username",value = "sa"),
+             @WebInitParam(name = "password",value = "sghSGH123"),
+             @WebInitParam(name = "driver",value = "com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+             @WebInitParam(name = "url",value = "jdbc:sqlserver://localhost:1433;DatabaseName=Stu;encrypt=false"),
+            },
+          loadOnStartup = 1
+)
 public class JdbcServlet extends HttpServlet {
 
     Connection con;

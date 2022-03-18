@@ -24,7 +24,7 @@
         <url-pattern>/hhhhh</url-pattern>
     </servlet-mapping> 
     
-     
+  <!--
     <servlet>
         <servlet-name>JdbcServlet</servlet-name>
         <servlet-class>com.ShenGuohao.week4.JdbcServlet</servlet-class>
@@ -46,7 +46,7 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-
+  -->
 
     <servlet-mapping>
         <servlet-name>JdbcServlet</servlet-name>
