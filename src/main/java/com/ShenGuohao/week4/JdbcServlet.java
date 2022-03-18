@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import java.sql.*;
 
 @WebServlet(name = "JdbcServlet", value = "/JdbcServlet")
@@ -14,7 +15,9 @@ public class JdbcServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("(doGet)connection:"+con);
+        response.setContentType("text/html;charset=UTF-8");
 
+        response.getWriter().println("链接数据库成功！");
     }
 
     @Override
@@ -25,14 +28,21 @@ public class JdbcServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        String username="sa";
-        String diver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        String password="sghSGH123";
-        String url="jdbc:sqlserver://localhost:1433;DatabaseName=Stu;encrypt=false";;
+//        String username="sa";
+//        String diver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//        String password="sghSGH123";
+//        String url="jdbc:sqlserver://localhost:1433;DatabaseName=Stu;encrypt=false";;
+
+          ServletConfig config=getServletConfig();
+          String username=config.getInitParameter("username");
+          String password=config.getInitParameter("password");
+          String driver=config.getInitParameter("driver");
+          String url=config.getInitParameter("url");
+
 
 
         try {
-            Class.forName(diver);
+            Class.forName(driver);
             con=DriverManager.getConnection(url,username,password);
 
             System.out.println("(Init)connection:"+con);

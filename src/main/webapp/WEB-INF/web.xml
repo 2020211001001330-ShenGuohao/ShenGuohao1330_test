@@ -28,8 +28,26 @@
     <servlet>
         <servlet-name>JdbcServlet</servlet-name>
         <servlet-class>com.ShenGuohao.week4.JdbcServlet</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>sa</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>sghSGH123</param-value>
+        </init-param>
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:sqlserver://localhost:1433;DatabaseName=Stu;encrypt=false</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+
     <servlet-mapping>
         <servlet-name>JdbcServlet</servlet-name>
         <url-pattern>/jdbc</url-pattern>
