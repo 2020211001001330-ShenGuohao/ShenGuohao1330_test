@@ -34,5 +34,6 @@ public class RegisterServlet extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         System.out.println("register:init()");
+        //test sgh
     }
 }
