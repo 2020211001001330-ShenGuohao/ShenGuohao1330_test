@@ -50,6 +50,7 @@ public class RegisterServlet extends HttpServlet {
             sql=con.prepareStatement("SELECT * FROM usertable");
             res= sql.executeQuery();
 
+            /*
                     out.println  ("<html><body>\n" +
                 "        <table width=\"600\" border=\"1\">\n" +
                 "            <tr>\n" +
@@ -80,7 +81,11 @@ public class RegisterServlet extends HttpServlet {
                }
                  out.println("        </table>\n" +
                          "</body></html>");
+              */
+ //           request.setAttribute("res",res);
 
+//             request.getRequestDispatcher("userList.jsp").forward(request,response);
+           response.sendRedirect("Login.jsp");
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -92,6 +97,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
+        /*
         ServletContext context=getServletContext();
         String username=context.getInitParameter("username");
         String password=context.getInitParameter("password");
@@ -106,5 +112,8 @@ public class RegisterServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        */
+
+        con=(Connection) getServletContext().getAttribute("con");
     }
 }
