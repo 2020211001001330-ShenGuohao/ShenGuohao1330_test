@@ -8,11 +8,6 @@
 
 
 <%@ include file="header.jsp" %>
-<%
-     if(!(request.getAttribute("message")==null)){
-         out.println(request.getAttribute("message"));
-     }
-%>
 
 <h1>Login</h1>
 <form method="post" action="login">
