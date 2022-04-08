@@ -68,6 +68,10 @@
         <param-value>jdbc:sqlserver://localhost:1433;DatabaseName=userdb;encrypt=false</param-value>
     </context-param>
 
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
+
 <!--    <servlet-mapping>-->
 <!--        <servlet-name>JdbcServlet</servlet-name>-->
 <!--        <url-pattern>/jdbc</url-pattern>-->
