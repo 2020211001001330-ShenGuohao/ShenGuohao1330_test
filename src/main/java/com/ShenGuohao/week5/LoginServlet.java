@@ -2,6 +2,7 @@ package com.ShenGuohao.week5;
 
 import com.ShenGuohao.dao.UserDao;
 import com.ShenGuohao.model.User;
+import com.sun.deploy.util.SessionState;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -55,7 +56,34 @@ public class LoginServlet extends HttpServlet {
             User user= userDao.findByUsernamePassword(con,username,password);
 
             if(user!=null){
-                request.setAttribute("user",user);
+
+//                Cookie c= new Cookie("sessionid",user.getId().trim());
+//                c.setMaxAge(10*60);
+//                response.addCookie(c);
+
+                String rememberMe=request.getParameter("rememberMe");
+                if(rememberMe!=null && rememberMe.equals("1")){
+
+                    Cookie usernameCookies=new Cookie("cusername",user.getUsername().trim());
+                    Cookie passwordCookies=new Cookie("cpassword",user.getPassword().trim());
+                    Cookie rememberMeCookies=new Cookie("crememberMe",rememberMe);
+
+                    usernameCookies.setMaxAge(10);
+                    passwordCookies.setMaxAge(10);
+                    rememberMeCookies.setMaxAge(10);
+
+                    response.addCookie(usernameCookies);
+                    response.addCookie(passwordCookies);
+                    response.addCookie(rememberMeCookies);
+
+                }
+
+                HttpSession session = request.getSession();
+                System.out.println("sessionId: "+session.getId());
+                session.setMaxInactiveInterval(10);
+                session.setAttribute("user",user);
+
+                //               request.setAttribute("user",user);
                 request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
 
             }else{
